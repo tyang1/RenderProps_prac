@@ -77,4 +77,17 @@ class Mouse extends React.PureComponent {
     }
   }
 
+  //HOC can be composed of render props and regular component
+  function withMouse(Component){
+    return class extends React.Component{
+        render(){
+        return(
+        <Mouse render={mouse => (
+          <Component mouse={mouse} />
+        )}
+          />
+        )
+    }
+  }
+
 export default MouseHover;
